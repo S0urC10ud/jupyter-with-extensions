@@ -20,7 +20,7 @@ declare -a jupyter_extensions=( \
                     "jupyter-matplotlib" \
                     "jupyterlab-drawio" \
                     "jupyter-leaflet" \
-                    "qgrid" \
+#                    "qgrid" \
                 )
 
 for ext in "${jupyter_extensions[@]}"; do jupyter labextension install "$ext" --no-build; done

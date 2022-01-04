@@ -3,8 +3,6 @@ set -x
 declare -a pip_extensions=( \
                     "jupyterlab-spellchecker" \
                     "aquirdturtle_collapsible_headings" \
-                    "jupyterlab==3" \
-                    "jupyterlab-git==0.22.1" \
                 )
 
 declare -a jupyter_extensions=( \
@@ -20,6 +18,7 @@ for ext in "${jupyter_extensions[@]}"; do jupyter labextension install "$ext" --
 
 for ext in "${pip_extensions[@]}"; do pip install "$ext"; done
 
+pip install --upgrade jupyterlab jupyterlab-git
 jupyter lab build
 jupyter lab clean
 jlpm cache clean

@@ -1,6 +1,6 @@
 FROM jupyter/datascience-notebook
 
 ENV NODE_OPTIONS="--max-old-space-size=4096"
-ADD install_extensions.sh /
-
-CMD ["/bin/bash", "/install_extensions.sh"]
+COPY install_extensions.sh /
+RUN chmod +x /install_extensions.sh
+RUN /bin/bash /install_extensions.sh

@@ -19,10 +19,7 @@ RUN declare -a extensions=( \
                     "qgrid" \
                     "aquirdturtle_collapsible_headings" \
                 )
-RUN for ext in "${extensions[@]}" \
-    do \
-        jupyter labextension install "$ext"  --no-build \
-    done
+RUN for ext in "${extensions[@]}"; do pip install "$ext" --no-build; done
 
 RUN  jupyter lab build && \
         jupyter lab clean && \

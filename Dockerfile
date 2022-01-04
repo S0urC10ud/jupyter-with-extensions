@@ -3,15 +3,17 @@ FROM jupyter/datascience-notebook
 ENV NODE_OPTIONS="--max-old-space-size=4096"
 RUN declare -a pip_extensions=( \
                     "jupyterlab-spellchecker" \
+                    "aquirdturtle_collapsible_headings" \
+                    "jupyterlab==3" \
+                    "jupyterlab-git==0.22.1" \
                 )
 RUN declare -a jupyter_extensions=( \
                     "@jupyter-widgets/jupyterlab-manager" \
                     "bqplot" \
-                    "element4" \
-                    "@jupyterlab/git" \
-                    "jupyterlab_tensorboard" \
+#                    "element4" \
+#                    "jupyterlab_tensorboard" \
                     "jupyterlab-kernelspy" \
-                    "@jupyterlab/plotly-extension" \
+#                    "@jupyterlab/plotly-extension" \
                     "jupyterlab-chart-editor" \
                     "plotlywidget" \
                     "@jupyterlab/latex" \
@@ -19,7 +21,6 @@ RUN declare -a jupyter_extensions=( \
                     "jupyterlab-drawio" \
                     "jupyter-leaflet" \
                     "qgrid" \
-                    "aquirdturtle_collapsible_headings" \
                 )
 
 RUN for ext in "${jupyter_extensions[@]}"; do jupyter labextension install "$ext" --no-build; done

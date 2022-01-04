@@ -10,17 +10,10 @@ declare -a pip_extensions=( \
 declare -a jupyter_extensions=( \
                     "@jupyter-widgets/jupyterlab-manager" \
                     "bqplot" \
-#                    "element4" \
-#                    "jupyterlab_tensorboard" \
                     "jupyterlab-kernelspy" \
-#                    "@jupyterlab/plotly-extension" \
-                    "jupyterlab-chart-editor" \
-                    "plotlywidget" \
                     "@jupyterlab/latex" \
                     "jupyter-matplotlib" \
                     "jupyterlab-drawio" \
-                    "jupyter-leaflet" \
-#                    "qgrid" \
                 )
 
 for ext in "${jupyter_extensions[@]}"; do jupyter labextension install "$ext" --no-build; done

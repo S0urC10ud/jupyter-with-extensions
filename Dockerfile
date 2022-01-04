@@ -21,7 +21,7 @@ RUN declare -a extensions=( \
                 )
 RUN for ext in "${extensions[@]}" \
     do \
-        jupyter labextension install "$ext"  --no-build && \
+        jupyter labextension install "$ext"  --no-build \
     done
 
 RUN  jupyter lab build && \

@@ -3,6 +3,8 @@ set -x
 declare -a pip_extensions=( \
                     "jupyterlab-spellchecker" \
                     "aquirdturtle_collapsible_headings" \
+                    "pwntools" \
+                    "torchattacks" \
                 )
 
 declare -a jupyter_extensions=( \
@@ -14,6 +16,7 @@ declare -a jupyter_extensions=( \
                     "jupyterlab-drawio" \
                 )
 
+pip3 install torch torchvision torchaudio --extra-index-url https://download.pytorch.org/whl/cpu
 for ext in "${jupyter_extensions[@]}"; do jupyter labextension install "$ext" --no-build; done
 
 for ext in "${pip_extensions[@]}"; do pip install "$ext"; done
